@@ -62,7 +62,7 @@ const searchInput = () => {
        const inputText = document.getElementById("get-input");
        const searchInputString = inputText.value.toLowerCase();
        const searchInputValue = inputText.value;
-       const searchInputGender = searchInputString.slice(0, 2); // added by beyadop
+       const searchInputGender = searchInputString.slice(0, 4); // added by beyadop
        inputText.value = '';
        const filterData = newArr.filter(user => 
               user.name.first.toLowerCase().includes(searchInputString) ||
