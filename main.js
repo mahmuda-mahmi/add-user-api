@@ -12,6 +12,7 @@ const getData = async () => {
 
 const addUserData = (filterData = newArr) => {
        let tempArr;
+       //show only 4 at first
        if(showAll){
               tempArr = filterData;
        }
@@ -34,7 +35,6 @@ const addUserData = (filterData = newArr) => {
                                    <span class="my-2">${new Date(element.dob.date).toLocaleDateString()}</span>
                                    <span class="my-2">${element.location.state}, ${element.location.country}</span>
                                    <span class="mb-2">${element.location.timezone.description}</span>
-                                   <button class="my-4 mx-auto">Resume</button>
        `;
               userCard.appendChild(div);
        });
@@ -47,31 +47,33 @@ const addUserData = (filterData = newArr) => {
               showMoreBtn.setAttribute('hidden', true);
        }
 };
-
+//making show button work
 const showMore = () => {
        showAll = true;
        addUserData();
 }
-
+//making sort button work
 const sortBtn = () => {
        newArr.sort((a,b) => new Date(b.dob.date) - new Date(a.dob.date));
        addUserData();
 }
-
+//making search option work
 const searchInput = () => {
        const inputText = document.getElementById("get-input");
        const searchInputString = inputText.value.toLowerCase();
        const searchInputValue = inputText.value;
-       inputText.value = ' ';
+       const searchInputGender = searchInputString.slice(0, 2); // added by beyadop
+       inputText.value = '';
        const filterData = newArr.filter(user => 
               user.name.first.toLowerCase().includes(searchInputString) ||
               user.name.last.toLowerCase().includes(searchInputString) ||
               user.dob.age.toString().includes(searchInputValue) ||
               user.location.state.toLowerCase().includes(searchInputString) ||
               user.location.country.toLowerCase().includes(searchInputString) ||
-              user.gender.toLowerCase().includes(searchInputString)
+              user.gender.slice(0,2).includes(searchInputGender) // added by beyadop
        );
        addUserData(filterData);
+       //error handling show more button
        if(filterData == []) {
               !showAll;
        }
