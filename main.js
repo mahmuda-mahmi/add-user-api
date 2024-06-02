@@ -25,7 +25,7 @@ const addUserData = (filterData = newArr) => {
        // tempArr.slice(0,4);
        tempArr.forEach(element => {
               const div = document.createElement('div');
-              div.classList = 'card p-5 bg-[#1a2634] grid';
+              div.classList = 'card p-5 bg-[#1a2634] grid mx-4 sm:mx-6 md:mx-6 lg:mx-4';
               div.innerHTML = `
                                    <div>
                                           <img class="rounded-full mx-auto my-3" src="${element.picture.large}">
@@ -70,7 +70,8 @@ const searchInput = () => {
               user.dob.age.toString().includes(searchInputValue) ||
               user.location.state.toLowerCase().includes(searchInputString) ||
               user.location.country.toLowerCase().includes(searchInputString) ||
-              user.gender.slice(0,2).includes(searchInputGender)
+              user.gender.slice(0,2).includes(searchInputGender) 
+       );
        addUserData(filterData);
        //error handling show more button
        if(filterData == []) {
