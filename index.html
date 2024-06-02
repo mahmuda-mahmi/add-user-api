@@ -22,19 +22,28 @@
        <main>
               <section class="container mx-auto my-10">
                      <div class="mt-6 mb-10 text-center">
+                            <!-- add user btn -->
                             <button class="font-bold rounded-lg px-6 py-4 bg-blue-50 text-blue-950" onclick="getData()">
                                    <i class="fa-sharp fa-light fa-user-plus stroke-2"></i>
                             </button>
+
+                            <!-- search user by age, name, gender, country, time zone  -->
                             <div class="join mx-5 h-14 w-1/2">
                                    <input id="get-input" class="input input-bordered focus:outline-none join-item h-full w-full" placeholder="Search"/>
                                    <button onclick="searchInput()" id="search-btn" class="btn join-item rounded-lg h-full px-6"><i class="fa-sharp fa-light fa-magnifying-glass"></i></button>
                             </div>
+
+                            <!-- sort user by age btn -->
                             <button class="font-bold rounded-lg px-6 py-4 bg-blue-50 text-blue-950" onclick="sortBtn()">
                                    <i class="fa-sharp fa-light fa-arrow-up-1-9"></i>
                             </button>
                      </div>
+
+                     <!-- add user card -->
                      <div class="grid grid-cols-4 gap-8" id="user-card">
                      </div>
+
+                     <!-- show more btn -->
                      <div class="text-center my-12">
                             <button id="show-more" class="font-bold rounded-lg px-6 py-4 bg-blue-50 text-blue-950" onclick="showMore()" hidden>
                                    Show More
