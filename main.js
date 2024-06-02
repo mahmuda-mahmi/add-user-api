@@ -62,7 +62,7 @@ const searchInput = () => {
        const inputText = document.getElementById("get-input");
        const searchInputString = inputText.value.toLowerCase();
        const searchInputValue = inputText.value;
-       const searchInputGender = searchInputString.slice(0, 4); // added by beyadop
+       const searchInputGender = searchInputString.slice(0, 4); 
        inputText.value = '';
        const filterData = newArr.filter(user => 
               user.name.first.toLowerCase().includes(searchInputString) ||
@@ -70,8 +70,7 @@ const searchInput = () => {
               user.dob.age.toString().includes(searchInputValue) ||
               user.location.state.toLowerCase().includes(searchInputString) ||
               user.location.country.toLowerCase().includes(searchInputString) ||
-              user.gender.slice(0,2).includes(searchInputGender) // added by beyadop
-       );
+              user.gender.slice(0,2).includes(searchInputGender)
        addUserData(filterData);
        //error handling show more button
        if(filterData == []) {
